@@ -19,7 +19,7 @@ public class Condutor {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idCondutor;
 
     @Column(nullable = false, length = 100)
     private String nome;
