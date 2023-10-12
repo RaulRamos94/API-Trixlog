@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS tb_veiculo(
     placa VARCHAR(20) NOT NULL,
     ufPlaca VARCHAR(2) NOT NULL,
     renavan INT(20) NOT NULL,
-    dataAqusicao DATE,
+    dataAquisicao DATE,
 
     PRIMARY KEY(idVeiculo));
 

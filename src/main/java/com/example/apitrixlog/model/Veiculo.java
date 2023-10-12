@@ -1,5 +1,7 @@
 package com.example.apitrixlog.model;
 
+import java.time.LocalDate;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
@@ -7,7 +9,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,8 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "tb_veiculo")
+@Entity(name = "tb_veiculo")
 public class Veiculo {
 
     @Id
@@ -33,15 +33,15 @@ public class Veiculo {
     @Column(nullable = false, length = 10)
     private String placa;
 
-    @Pattern(regexp = "^(AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO|BR)$", message= "Estado inválido")
     @Column(nullable = false, length = 2)
+    @Pattern(regexp = "^(AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO|BR)$", message= "Estado inválido")
     private String ufPlaca;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 10)
     private int renavan;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(nullable = false, length = 10)
-    private String dataAquisicao;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataAquisicao;
 
 }

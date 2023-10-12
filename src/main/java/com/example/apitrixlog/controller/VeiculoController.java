@@ -13,10 +13,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.apitrixlog.model.Veiculo;
 import com.example.apitrixlog.repository.VeiculoRepository;
 
+@RestController
+@RequestMapping(value = "/veiculos")
 public class VeiculoController {
 
     @Autowired
@@ -64,6 +68,12 @@ public class VeiculoController {
         }
         veiculoRepository.deleteById(idVeiculo);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Veiculo excluído com sucesso!");
+    }
+
+    //Buscar veiculo por renavan
+    @GetMapping("/renavan/{renavan}")
+    public Optional<Veiculo> buscarUsuarioPeloEmail(@PathVariable("renavan") int renavan) {
+        return veiculoRepository.findByRenavan(renavan);
     }
     
 }
