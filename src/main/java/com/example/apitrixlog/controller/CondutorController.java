@@ -46,6 +46,7 @@ public class CondutorController {
         if(condutorCadastrado.isPresent()){
             condutorCadastrado.get().setNome(condutor.getNome());
             condutorCadastrado.get().setVeiculos(condutor.getVeiculos());
+            
             Condutor condutorAtualizado  = condutorRepository.save(condutorCadastrado.get());
 
             return ResponseEntity.ok().body(condutorAtualizado);
