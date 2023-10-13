@@ -88,5 +88,11 @@ public class VeiculoController {
     public Optional<Veiculo> buscarPorPlaca(@PathVariable("placa") String placa) {
         return veiculoRepository.findByPlaca(placa);
     }
+
+    //Buscar veiculo por UF da placa
+    @GetMapping("/ufPlaca/{ufPlaca}")
+    public Optional<Veiculo> buscarPorUfDaPlaca(@PathVariable("ufPlaca") String ufPlaca) {
+        return veiculoRepository.findByUfPlaca(ufPlaca);
+    }
     
 }

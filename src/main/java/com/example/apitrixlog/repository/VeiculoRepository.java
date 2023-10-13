@@ -12,5 +12,6 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
     Optional<Veiculo> findByRenavan(int renavan);
     Optional<Veiculo> findByDataAquisicao(LocalDate dataAquisicao);
     Optional<Veiculo> findByPlaca(String placa);
+    Optional<Veiculo> findByUfPlaca(String ufPlaca);
     
 }
