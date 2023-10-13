@@ -82,5 +82,11 @@ public class VeiculoController {
     public Optional<Veiculo> buscarPordataAquisicao(@PathVariable("dataAquisicao") LocalDate dataAquisicao) {
         return veiculoRepository.findByDataAquisicao(dataAquisicao);
     }
+
+    //Buscar veiculo por placa
+    @GetMapping("/placa/{placa}")
+    public Optional<Veiculo> buscarPorPlaca(@PathVariable("placa") String placa) {
+        return veiculoRepository.findByPlaca(placa);
+    }
     
 }
