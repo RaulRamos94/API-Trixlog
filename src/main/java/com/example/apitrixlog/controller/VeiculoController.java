@@ -1,5 +1,6 @@
 package com.example.apitrixlog.controller;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,12 @@ public class VeiculoController {
     @GetMapping("/renavan/{renavan}")
     public Optional<Veiculo> buscarUsuarioPeloEmail(@PathVariable("renavan") int renavan) {
         return veiculoRepository.findByRenavan(renavan);
+    }
+
+    //Buscar veiculo por data de aquisição
+    @GetMapping("/dataAquisicao/{dataAquisicao}")
+    public Optional<Veiculo> buscarPordataAquisicao(@PathVariable("dataAquisicao") LocalDate dataAquisicao) {
+        return veiculoRepository.findByDataAquisicao(dataAquisicao);
     }
     
 }
