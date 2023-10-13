@@ -65,4 +65,10 @@ public class CondutorController {
         condutorRepository.deleteById(idCondutor);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Condutor excluído com sucesso!");
     }
+
+    //Buscar condutor pelo nome
+    @GetMapping("/nome/{nome}")
+    public Optional<Condutor> buscarCondutorPeloNome(@PathVariable("nome") String nome) {
+        return condutorRepository.findByNome(nome);
+    }
 }
